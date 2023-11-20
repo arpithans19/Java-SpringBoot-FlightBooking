@@ -1,0 +1,28 @@
+server:
+  port: 8001
+  
+spring:
+  application:
+    name: flight-service
+    
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: FlightDB
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - hystrix.stream
+        
+logging:
+  level:
+    '[com.user.service.FlightServiceImpl]' : info       
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+  file:
+    path: logs 

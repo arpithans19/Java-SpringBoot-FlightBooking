@@ -1,0 +1,28 @@
+server:
+  port: 8003
+  
+spring:
+  application:
+    name: fare-service
+    
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: FareDB
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - hystrix.stream
+        
+logging:
+  level:
+    '[com.user.service.FareServiceImpl]' : info       
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+  file:
+    path: logs 
